@@ -115,7 +115,7 @@ namespace dotNES
                 }
             }
         }
-
+        //The inttiatior of the ROM file booting
         private void BootCartridge(string rom)
         {
             emu = new Emulator(rom, _controller);
