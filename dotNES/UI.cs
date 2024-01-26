@@ -115,7 +115,7 @@ namespace dotNES
                 }
             }
         }
-        //The inttiatior of the ROM file booting
+        // heheh found the thingy that loads the game files (rom's)
         private void BootCartridge(string rom)
         {
             emu = new Emulator(rom, _controller);
