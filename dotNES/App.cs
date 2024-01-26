@@ -14,6 +14,8 @@ namespace dotNES
             Application.SetCompatibleTextRenderingDefault(false);
             UI ui = new UI();
             Application.Run(ui);
+
+            
             //Emulator emu = new Emulator();
             //Console.WriteLine(emu.Cartridge);
             //for (int i = 0; i < 10000; i++)
