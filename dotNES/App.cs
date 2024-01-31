@@ -12,6 +12,8 @@ namespace dotNES
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            rom_selector rom_select = new rom_selector();
+            rom_select.Cartridge_to_load("load_dis_game.txt");
             UI ui = new UI();
             Application.Run(ui);
             //Emulator emu = new Emulator();

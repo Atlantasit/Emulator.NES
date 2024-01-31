@@ -152,9 +152,12 @@ namespace dotNES
 
         private void UI_Load(object sender, EventArgs e)
         {
+            /*
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1)
                 BootCartridge(args[1]);
+                */
+            BootCartridge(rom_select.get_path_game());
         }
 
         private void Screenshot()
