@@ -6,7 +6,7 @@ namespace dotNES
 {
     public class rom_selector{
         //Variables
-        private int ID;
+        private string ID;
         private string path;
         private string path_game;
         private string user_ID;
@@ -22,7 +22,7 @@ namespace dotNES
 
         }
 
-        public int get_ID(){
+        public string get_ID(){
             return ID;
         }
 

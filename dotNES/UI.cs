@@ -118,8 +118,6 @@ namespace dotNES
         // heheh found the thingy that loads the game files (rom's)
         private void BootCartridge(string rom)
         {
-            json = new json_reader();
-            rom = json.
             emu = new Emulator(rom, _controller);
             _renderThread = new Thread(() =>
             {
@@ -159,6 +157,8 @@ namespace dotNES
             if (args.Length > 1)
                 BootCartridge(args[1]);
                 */
+            rom_selector rom_select = new rom_selector();
+            rom_select.Cartridge_to_load("load_dis_game.txt");
             BootCartridge(rom_select.get_path_game());
         }
 
@@ -263,7 +263,7 @@ namespace dotNES
             };
             cm.Show(this, new Point(e.X, e.Y));
         }
-/*
+
         private void UI_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -287,7 +287,7 @@ namespace dotNES
         {
             e.Effect = DragDropEffects.Copy;
         }
-*/
+
         private void UI_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             e.IsInputKey = true;

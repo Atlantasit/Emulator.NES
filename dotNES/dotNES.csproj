@@ -189,6 +189,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    
+    <Compile Include="rom_selector.cs"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
