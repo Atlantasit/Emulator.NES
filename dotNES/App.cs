@@ -16,6 +16,8 @@ namespace dotNES
             rom_select.Cartridge_to_load("load_dis_game.txt");
             UI ui = new UI();
             Application.Run(ui);
+
+            
             //Emulator emu = new Emulator();
             //Console.WriteLine(emu.Cartridge);
             //for (int i = 0; i < 10000; i++)
