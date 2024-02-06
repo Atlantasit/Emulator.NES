@@ -1,4 +1,4 @@
 001
-/home/atlantasit/Documents/Daten/Github/Emulator.NES
+/Emulator.NES
 Super Mario Bros (E).nes
 001

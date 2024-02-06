@@ -13,6 +13,7 @@ namespace dotNES
 
         //Methodes
         public void Cartridge_to_load(string path_txt){
+            
             string[] content = File.ReadAllLines(path_txt);
 
             this.ID         = content[0];

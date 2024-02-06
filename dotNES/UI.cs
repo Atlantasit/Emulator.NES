@@ -64,6 +64,8 @@ namespace dotNES
         private Type[] possibleRenderers = { typeof(SoftwareRenderer), /* typeof(OpenGLRenderer),  */ typeof(Direct3DRenderer) };
         private List<IRenderer> availableRenderers = new List<IRenderer>();
 
+        //Initaisation for the Logger
+        log_output log = new log_output();
         public UI()
         {
             InitializeComponent();
@@ -109,8 +111,9 @@ namespace dotNES
                     renderer.EndRendering();
                     availableRenderers.Add(renderer);
                 }
-                catch (Exception)
+                catch (Exception excep)
                 {
+                    log.write_nextLine(ToString(excep));
                     Console.WriteLine($"{renderType} failed to initialize");
                 }
             }
@@ -152,14 +155,23 @@ namespace dotNES
 
         private void UI_Load(object sender, EventArgs e)
         {
-            /*
-            string[] args = Environment.GetCommandLineArgs();
-            if (args.Length > 1)
-                BootCartridge(args[1]);
-                */
-            rom_selector rom_select = new rom_selector();
-            rom_select.Cartridge_to_load("load_dis_game.txt");
-            BootCartridge(rom_select.get_path_game());
+            try
+            {
+                rom_selector rom_select = new rom_selector();
+                rom_select.Cartridge_to_load("load_dis_game.txt");
+                BootCartridge(rom_select.get_path_game());
+            }
+            catch(Exception excep)
+            {   
+                
+                log.write_nextLine("Error Loading the Auto Cartrige, switching to manuall rom insertion");
+                log.write_nextLine(excep.ToString());
+                
+
+                string[] args = Environment.GetCommandLineArgs();
+                if (args.Length > 1)
+                    BootCartridge(args[1]);
+            }
         }
 
         private void Screenshot()
@@ -277,7 +289,8 @@ namespace dotNES
                 }
                 catch (Exception ex) 
                 {
-                    Console.WriteLine(ex);
+                    //log here
+                    log.write_nextLine(ToString(ex));
                     MessageBox.Show("Error loading ROM file; either corrupt or unsupported");
                 }
             }
