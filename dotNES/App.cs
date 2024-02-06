@@ -12,6 +12,9 @@ namespace dotNES
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            log_output log = new log_output();
+            log.write_nextLine("extra message");
 
             UI ui = new UI();
             Application.Run(ui);

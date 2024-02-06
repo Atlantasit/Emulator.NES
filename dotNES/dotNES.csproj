@@ -190,6 +190,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     
+    <Compile Include="log_output.cs"/>
     <Compile Include="rom_selector.cs"/>
   </ItemGroup>
   <ItemGroup>
