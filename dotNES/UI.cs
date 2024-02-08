@@ -113,7 +113,7 @@ namespace dotNES
                 }
                 catch (Exception excep)
                 {
-                    log.write_nextLine(ToString(excep));
+                    log.write_nextLine(excep.ToString());
                     Console.WriteLine($"{renderType} failed to initialize");
                 }
             }
@@ -289,8 +289,7 @@ namespace dotNES
                 }
                 catch (Exception ex) 
                 {
-                    //log here
-                    log.write_nextLine(ToString(ex));
+                    log.write_nextLine(ex.ToString());
                     MessageBox.Show("Error loading ROM file; either corrupt or unsupported");
                 }
             }

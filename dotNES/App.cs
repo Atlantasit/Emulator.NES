@@ -12,14 +12,13 @@ namespace dotNES
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             log_output log = new log_output();
-            log.write_nextLine("extra message");
+            log.write_nextLine("");
 
             UI ui = new UI();
             Application.Run(ui);
-
-            
+        
             //Emulator emu = new Emulator();
             //Console.WriteLine(emu.Cartridge);
             //for (int i = 0; i < 10000; i++)
