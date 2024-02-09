@@ -17,9 +17,7 @@ namespace dotNES
             string[] content = File.ReadAllLines(path_txt);
 
             this.ID         = content[0];
-            this.path       = content[1];
             this.path_game  = content[2];
-            this.user_ID    = content[3];
 
         }
 
