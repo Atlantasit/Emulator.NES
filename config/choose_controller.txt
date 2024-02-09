@@ -1,3 +1,0 @@
-2
-#1 -Normal Controlls over the keyboard
-#2 -Controlls over a NES controller (seen as controller)

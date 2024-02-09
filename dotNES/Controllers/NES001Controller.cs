@@ -11,9 +11,9 @@ namespace dotNES.Controllers
         private bool strobing;
 
         public bool debug;
-        // bit:   	 7     6     5     4     3     2     1     0
-        // button:	 A B  Select Start  Up Down  Left 
-
+        // Gamepad:  B1    B0    B8     B9      Axis1(-1)   Axis1(1)    Axis0(-1)   Axis0(1)
+        // bit:   	 7     6     5      4       3           2           1           0
+        // button:	 A     B     Select Start   Up          Down        Left        Right
         private readonly Dictionary<Keys, int> _keyMapping = new Dictionary<Keys, int>
         {
             {Keys.A, 7},
@@ -46,6 +46,7 @@ namespace dotNES.Controllers
         public void PressKey(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.P) debug ^= true;
+            
             if (!_keyMapping.ContainsKey(e.KeyCode)) return;
             data |= 1 << _keyMapping[e.KeyCode];
         }
