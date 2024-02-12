@@ -1,4 +1,0 @@
-001
-/Emulator.NES/user/games/
-Super Mario Bros (E).nes
-001
