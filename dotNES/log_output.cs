@@ -6,25 +6,18 @@ using System.Reflection;
 namespace dotNES
 {    
     class log_output
-    {   
-        string log_time = DateTime.Now.ToString();
-        public void new_log(){
-
-            var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly(). CodeBase);
-            var newLOGPath = Path.Combine(outPutDirectory, "\\Logs");
-            string newlog_file = new Uri(newLOGPath).LocalPath;
-            //Creating the new log file
-            using(FileStream fs = File.Create(newLOGPath + "\\[" + log_time + "]log.txt")){}
-        }
+    {
+        public string log_time;
 
         public void write_nextLine(string message){
+            var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+            string newLOGPath = outPutDirectory;
+            string newlog_file = new Uri(newLOGPath).LocalPath;
 
-            var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly(). CodeBase);
-  
-            var LOGPath = Path.Combine(outPutDirectory,"\\[" + log_time + "]log.txt");
-            string log_path = new Uri(LOGPath).LocalPath;
+            DateTime currentTime = DateTime.Now;
+            log_time = currentTime.Year.ToString() + "-" + currentTime.Month.ToString() + "-" + currentTime.Day.ToString() + "_" + currentTime.Hour.ToString() + "." + currentTime.Minute.ToString();
 
-            using(StreamWriter writer = new StreamWriter(log_path,true)){
+            using (StreamWriter writer = new StreamWriter(newlog_file + "\\"+"log_"+ log_time +".txt", true)){
                 writer.WriteLine($"{DateTime.Now} : {message}");
             }
         }
