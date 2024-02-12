@@ -23,6 +23,8 @@ namespace dotNES
         public bool ready;
         public IRenderer _renderer;
 
+        public Logger logger;
+
         public enum FilterMode
         {
             NearestNeighbor, Linear
@@ -65,9 +67,11 @@ namespace dotNES
         private List<IRenderer> availableRenderers = new List<IRenderer>();
 
         //Initaisation for the Logger
-        log_output log = new log_output();
-        public UI()
+        public UI(Logger loggerFromApp)
         {
+            logger = loggerFromApp;
+            logger.WriteLineToLog("Handshake between the preloader to UI completed!","Main Window");
+
             InitializeComponent();
 
             FindRenderers();
@@ -113,7 +117,8 @@ namespace dotNES
                 }
                 catch (Exception excep)
                 {
-                    log.write_nextLine(excep.ToString());
+                    logger.WriteLineToLog(excep.ToString(),"Renderer");
+                    logger.WriteLineToLog($"{renderType} failed to initialize","Renderer");
                     Console.WriteLine($"{renderType} failed to initialize");
                 }
             }
@@ -164,8 +169,8 @@ namespace dotNES
             catch(Exception excep)
             {   
                 
-                log.write_nextLine("Error Loading the Auto Cartrige, switching to manuall rom insertion");
-                log.write_nextLine(excep.ToString());
+                logger.WriteLineToLog("Error Loading the Auto Cartrige, switching to manuall rom insertion", "Game Loader");
+                logger.WriteLineToLog(excep.ToString(),"Game Loader");
                 
 
                 string[] args = Environment.GetCommandLineArgs();
@@ -289,8 +294,9 @@ namespace dotNES
                 }
                 catch (Exception ex) 
                 {
-                    log.write_nextLine(ex.ToString());
+                    logger.WriteLineToLog(ex.ToString(), "Game Loader");
                     MessageBox.Show("Error loading ROM file; either corrupt or unsupported");
+                    logger.WriteLineToLog("Error loading ROM file; either corrupt or unsupported", "Game Loader");
                 }
             }
         }

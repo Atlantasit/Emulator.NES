@@ -13,10 +13,10 @@ namespace dotNES
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            log_output log = new log_output();
-            log.log_create();
+            Logger log = new Logger();
+            log.CreateLog();
 
-            UI ui = new UI();
+            UI ui = new UI(log);
             Application.Run(ui);
         
             //Emulator emu = new Emulator();
