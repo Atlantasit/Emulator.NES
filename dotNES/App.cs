@@ -14,7 +14,7 @@ namespace dotNES
             Application.SetCompatibleTextRenderingDefault(false);
 
             log_output log = new log_output();
-            log.write_nextLine("");
+            log.log_create();
 
             UI ui = new UI();
             Application.Run(ui);

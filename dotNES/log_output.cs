@@ -9,12 +9,14 @@ namespace dotNES
     {
         private string log_time;
         private string log_file;
-        public void log_setTime(){
+        private void log_setTime(){
             DateTime currentTime = DateTime.Now;
             this.log_time = currentTime.Year.ToString() + "-" + currentTime.Month.ToString() + "-" + currentTime.Day.ToString() + "_" + currentTime.Hour.ToString() + "." + currentTime.Minute.ToString();
         }
 
         public void log_create(){
+            log_setTime();
+
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
             string newLOGPath = outPutDirectory;
             string newlog_file = new Uri(newLOGPath).LocalPath;
