@@ -16,8 +16,11 @@ namespace dotNES
             Logger log = new Logger();
             log.CreateLog();
 
+            Folder_checker checker = new Folder_checker(log);
+            checker.check_folders();
+
             UI ui = new UI(log);
-            Application.Run(ui);
+            Application.Run(ui);          
         
             //Emulator emu = new Emulator();
             //Console.WriteLine(emu.Cartridge);

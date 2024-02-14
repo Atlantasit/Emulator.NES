@@ -5,13 +5,14 @@ using System.Reflection;
 namespace dotNES{
     public class Folder_checker{
 
-        public Logger logger;
+        private Logger logger;
+        private string folder_path;
 
-        public folder_gen(Logger loggerFromApp)
+        public Folder_checker(Logger loggerimport)
         {
-            logger = loggerFromApp;
+            logger = loggerimport;
         }
-        const string[14] folders = {
+        string[] folders ={
             @"\games",
             @"\config",
             @"\games\001 - Super Mario Bros",
@@ -29,23 +30,24 @@ namespace dotNES{
         };
 
         public void check_folders(){
-            string folder_path;
 
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
             string newPath = outPutDirectory;
 
+            logger.WriteLineToLog("Starting the Scanning if Files.","Folder Checker");
+
             foreach (var dir in folders)
             {
-                logger.WriteLineToLog("Checking if folder " + dir + " is present");
+                logger.WriteLineToLog("Checking if folder (" + dir + ") is present.","Folder Checker");
                 this.folder_path = new Uri(newPath).LocalPath + dir;
 
                 if(!Directory.Exists(folder_path)){
-                    logger.WriteLineToLog("Fail! Folder " + dir + " is not present");
-                    logger.WriteLineToLog("Generating Folder at: " + dir);
+                    logger.WriteLineToLog("Fail! Folder (" + dir + ") is not present.","Folder Checker");
+                    logger.WriteLineToLog("Generating Folder at: (" + dir + ")","Folder Checker");
                     Directory.CreateDirectory(folder_path);
                 }
                 else{
-                    logger.WriteLineToLog("Success! Folder " + dir + " is present");
+                    logger.WriteLineToLog("Success! Folder (" + dir + ") is present.","Folder Checker");
                 }
             }
         }

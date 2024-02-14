@@ -168,7 +168,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Logger.cs" />
-    <Compile Include="rom_selector.cs" />
+    <Compile Include="Folder checker.cs" />
+    <Compile Include="Auto Cartrige.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

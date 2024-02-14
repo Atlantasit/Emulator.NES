@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace dotNES
 {
@@ -11,12 +12,19 @@ namespace dotNES
 
         //Methodes
         public void load_data(){
+            var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+            string newPath = outPutDirectory;
+            string path = newPath + @"\config\load_dis_game.txt";
             
-            string[] content = File.ReadAllLines(path_txt);
+            if(!Directory.Exists(path)){
+                Directory.CreateDirectory(path);
+            }
 
+            string[] content = File.ReadAllLines(path);
+            
+            this.path       = content[0];
             this.ID         = content[1];
-            this.path_game  = content[0];
-
+            
         }
 
         public string get_ID(){
