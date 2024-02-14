@@ -3,12 +3,12 @@ using System.IO;
 using System.Reflection;
 
 namespace dotNES{
-    public class Folder_checker{
+    public class FolderChecker{
 
         private Logger logger;
         private string folder_path;
 
-        public Folder_checker(Logger loggerimport)
+        public FolderChecker(Logger loggerimport)
         {
             logger = loggerimport;
         }

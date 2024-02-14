@@ -162,7 +162,7 @@ namespace dotNES
         {
             try
             {
-                Auto_Cartrige auto_cart = new Auto_Cartrige();
+                AutoCartrige auto_cart = new AutoCartrige(logger);
                 auto_cart.load_data();
                 BootCartridge(auto_cart.get_path() + @"*.nes");
             }

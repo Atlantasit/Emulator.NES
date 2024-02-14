@@ -16,7 +16,7 @@ namespace dotNES
             Logger log = new Logger();
             log.CreateLog();
 
-            Folder_checker checker = new Folder_checker(log);
+            FolderChecker checker = new FolderChecker(log);
             checker.check_folders();
 
             UI ui = new UI(log);

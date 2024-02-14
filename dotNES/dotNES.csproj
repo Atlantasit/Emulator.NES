@@ -168,8 +168,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Logger.cs" />
-    <Compile Include="Folder checker.cs" />
-    <Compile Include="Auto Cartrige.cs" />
+    <Compile Include="FolderChecker.cs" />
+    <Compile Include="AutoCartrige.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
