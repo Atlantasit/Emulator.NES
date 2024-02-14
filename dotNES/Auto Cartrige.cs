@@ -4,20 +4,18 @@ using System.Collections.Generic;
 
 namespace dotNES
 {
-    public class rom_selector{
+    public class Auto_Cartrige{
         //Variables
         private string ID;
         private string path;
-        private string path_game;
-        private string user_ID;
 
         //Methodes
-        public void Cartridge_to_load(string path_txt){
+        public void load_data(){
             
             string[] content = File.ReadAllLines(path_txt);
 
-            this.ID         = content[0];
-            this.path_game  = content[2];
+            this.ID         = content[1];
+            this.path_game  = content[0];
 
         }
 
@@ -28,14 +26,5 @@ namespace dotNES
         public string get_path(){
             return path;
         }
-
-        public string get_path_game(){
-            return path_game;
-        }
-
-        public string get_user_ID(){
-            return user_ID;
-        }
-
     }
 }

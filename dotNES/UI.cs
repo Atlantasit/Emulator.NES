@@ -162,9 +162,9 @@ namespace dotNES
         {
             try
             {
-                rom_selector rom_select = new rom_selector();
-                rom_select.Cartridge_to_load("config/load_dis_game.txt");
-                BootCartridge(rom_select.get_path_game());
+                Auto_Cartrige auto_cart = new Auto_Cartrige();
+                auto_cart.load_data();
+                BootCartridge(auto_cart.get_path());
             }
             catch(Exception excep)
             {   
