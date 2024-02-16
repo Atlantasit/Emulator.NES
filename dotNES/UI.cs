@@ -164,6 +164,7 @@ namespace dotNES
             {
                 AutoCartrige auto_cart = new AutoCartrige(logger);
                 auto_cart.load_data();
+                logger.WriteLineToLog("Loading AutoCartrige file: " + auto_cart.get_path() + " With Game ID: " + auto_cart.get_ID(),"UI");
                 BootCartridge(auto_cart.get_path() + @"*.nes");
             }
             catch(Exception excep)

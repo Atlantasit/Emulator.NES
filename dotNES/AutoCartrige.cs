@@ -25,8 +25,8 @@ namespace dotNES
 
             
             if(!File.Exists(path)){
-                logger.WriteLineToLog("Config file load_dis_game.txt not found generation one!", "AutoCartige");
-                logger.WriteLineToLog("File: " + path, "AutoCartige");// only temp
+                logger.WriteLineToLog("Config file load_dis_game.txt not found trying to generate one!", "AutoCartige");
+                logger.WriteLineToLog("File: " + path, "AutoCartige");// Idk why but the file cration is not working
 
                 using (StreamWriter writer = new StreamWriter(path, true))
                 {
